@@ -132,5 +132,3 @@ dmypy.json
 data/
 
 # Data
-repos-formatted.json
-repos.json
