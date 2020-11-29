@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# temp python files for collecting data
+data/
+
+# Data
+repos-formatted.json
+repos.json

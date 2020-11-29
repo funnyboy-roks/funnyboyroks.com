@@ -1,0 +1,12 @@
+html {
+	background: #3a3a3a;
+}
+
+.heading{
+	color: white;
+}
+
+.container .title, .repo-info-value{
+	color: #f4f4f4;
+}
+

@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<section class="container is-max-widescreen">
+    <nav class="level mt-6">
+        <!-- Counts of the various things (forks, watchers, stars)-->
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Forks</p>
+                <p class="title">{{ project.forks_count }}</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Watchers</p>
+                <p class="title">{{ project.watchers }}</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Stars</p>
+                <p class="title" id="star-count">0</p>
+            </div>
+        </div>
+    </nav>
+
+    <nav class="level mt-6">
+        <!--  The times that the various things updated last (created, updated, pushed) -->
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Created On</p>
+                <p class="title">{{ page_info.dates.created_on }}</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Updated On</p>
+                <p class="title">{{ page_info.dates.updated_on }}</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">Pushed On</p>
+                <p class="title">{{ page_info.dates.pushed_on }}</p>
+            </div>
+        </div>
+    </nav>
+</section>
+<!-- Will use in future- GH Info: <img src="https://github-readme-stats.vercel.app/api?username=funnyboy-roks&show_icons=true&theme=radical"> -->
+<!-- Will use in future- Lang Info: <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=funnyboy-roks&hide=GLSL&layout=compact" alt="GitHub Stats"> -->
+
+<div class="has-text-centered mb-6 pb-6" id="repo-info">
+    <div class="mt-6">
+        <p class="heading">Description</p>
+        <p class="title is-5 has-text-weight-normal repo-info-value">{{ project.description }}</p>
+    </div>
+    {% if project.info_json and project.info_json.json_content.long_description %}
+    <div class="mt-6">
+        <p class="heading">Long Description</p>
+        <p class="title is-5 has-text-weight-normal repo-info-value">
+            {{ project.info_json.json_content.long_description }}</p>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='projects.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+    {% if page_info.title %}
+    <title>{{ page_info.title }}</title>
+    {% else %}
+    <title>funnyboy_roks</title>
+    {% endif %}
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="hero is-primary is-bold">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item subtitle" href="../">
+                            funnyboy_roks
+                        </a>
+                        <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item {{ 'is-active' if page_info.name == 'home' }}" href="../">
+                                Home
+                            </a>
+                            <a class="navbar-item {{ 'is-active' if page_info.name == 'about' }}" href="../about">
+                                About
+                            </a>
+                            </a>
+                            <a class="navbar-item {{ 'is-active' if page_info.name == 'projects' }}"
+                                href="../projects/">
+                                Projects
+                            </a>
+                            <a class="navbar-item {{ 'is-active' if page_info.name == 'contact' }}" href="../contact">
+                                Contact
+                            </a>
+                            <span class="navbar-item">
+                                <a class="button is-primary is-inverted" href="https://github.com/funnyboy-roks/">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>GitHub</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+
+
+        </div>
+
+
+        <div class="hero-body">
+            <h1 class="title is-1">{{ page_info.page_title }}</h1>
+            {% if page_info.subtitle %}
+            <h2 class="subtitle">{{ page_info.subtitle }}</h2>
+            {% elif page_info.name == 'project' %}
+            <h2 class="subtitle" id="subtitle">
+                <a href="{{ project.html_url }}" class="has-text-link">{{ project.full_name }}</a>
+                {% if project.fork %}
+                <h2 id="fork" class="subtitle is-6">(Fork of <a href="{{ project.details_json.source.html_url }}"
+                        class="has-text-link">{{ project.details_json.source.full_name }}</a>)</h2>
+                {% endif %}
+
+            </h2>
+            {% if project.info_json and project.info_json.json_content.featured_langs %}
+            <h2 class="subtitle" id="langs">{{ ', '.join(project.info_json.json_content.featured_langs) }}</h2>
+            {% elif project.language %}
+            <h2 class="subtitle" id="langs">{{ project.language }}</h2>
+            {% endif %}
+
+            {% endif %}
+
+        </div>
+
+        {% if page_info.has_links %}
+        <div class="hero-foot" id="hero-foot">
+            <nav class="tabs is-boxed is-fullwidth">
+                <div class="container">
+                    <ul id="repo-links">
+                        {% for link in page_info.links %}
+                        <li>
+                            <a href="{{ link.url }}">{{ link.label }}</a>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        {% endif %}
+    </section>
+
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+
+
+.cards{
+    width: 100%;
+    columns: 3 auto;
+    /* column-width: 30%; */
+}
+
+.card{
+    background-color: #1f1f1f;
+    display: inline-block;
+    width: 100%;
+    /* color: white; */
+}
+.card .title{
+    color: white;
+
+}
+
+.card .content{
+    color: #f4f4f4
+}
+/*
+.card{
+    margin: 1em;
+    width: 30%;
+    min-width: 400px;
+    cursor: pointer;
+} */
+
+.underline{
+    text-decoration: underline;
+}
+
+@media (max-width: 700px){
+    .cards{
+        columns: 1;
+    }
+}

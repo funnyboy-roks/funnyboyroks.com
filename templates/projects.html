@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="cards p-4">
+    {% for proj in projects %}
+    <div class="card is-clickable mb-4" id="{{ proj.name }}" onclick="location.href = 'http://' + location.host + '/project/{{ proj.name }}'">
+        <div class="card-content">
+            <div class="media">
+                <div class="media-content">
+                    <p class="title is-4">{{ proj.name }}</p>
+                    <p class="subtitle is-6"><a href="{{ proj.html_url }}">View on GitHub</a>
+                        {% if proj.fork %}
+                        <a href="{{ proj.details_json.source.html_url }}">(Fork of {{ proj.details_json.source.full_name }})</a>
+                        {% endif %}
+                        <!-- {{ proj.full_name if proj.forked else proj.id }}</p> -->
+                </div>
+            </div>
+            <div class="content">
+                {% if proj.description %}
+                        {{ proj.description }} <br>
+                {% endif %}
+
+                {% if proj.language %}
+                        {{ proj.language }} | 
+                {% endif %}
+                <time>{{ proj.created.strftime('%d %b %Y') }}</time>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
