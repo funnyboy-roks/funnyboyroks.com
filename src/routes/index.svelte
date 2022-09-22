@@ -22,7 +22,7 @@
 <div class="content">
 	<h1>Hello!</h1>
 	<p>I am Hayden Pott, though many people know me as funnyboy_roks.
-		I am currently studying Computer Science at Louisiana Tech University.</p>	
+		I am studying Computer Science at Louisiana Tech University.</p>	
 
 </div>
 
