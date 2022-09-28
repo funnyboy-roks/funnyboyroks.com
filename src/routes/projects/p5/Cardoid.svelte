@@ -12,7 +12,7 @@
 		};
 
 		p5.draw = () => {
-			let r = p5.width / 2;
+			let r = p5.width * .48;
 			let ax = p5.sin(a2) * r + p5.width / 2;
 			let ay = p5.cos(a2) * r + p5.height / 2;
 
