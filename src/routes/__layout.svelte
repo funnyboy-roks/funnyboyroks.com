@@ -3,6 +3,12 @@
 	import '../app.css';
 </script>
 
+<svelte:head>
+	<meta property="og:title" content="funnyboy_roks">
+	<meta property="og:description" content="Projects and info for funnyboy_roks">
+	<meta property="og:type" content="website">
+</svelte:head>
+
 <Header />
 
 <main>
