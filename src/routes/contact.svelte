@@ -35,8 +35,7 @@
 
 <div class="content">
     <h1>Contact Me</h1>
-    <p>The best way to contact me is to use the form below, but I am also reachable on Discord at funnyboy_roks#0001 and by email at <a href="mailto:funnyboyroks@gmail.com">funnyboyroks@gmail.com</a></p>
-
+    <p>The best way to contact me is to use the form below, but I am also reachable on Discord by joining my <a href="/discord">Discord Server</a> or by email at <a href="mailto:funnyboyroks@gmail.com">funnyboyroks@gmail.com</a></p>
     
     <div id="form">
         {#if formState === 'unsubmitted' || formState === 'error'}
